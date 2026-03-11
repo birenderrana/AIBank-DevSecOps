@@ -81,12 +81,35 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+     <plugins>
 
-</project>
+        <!-- Spring Boot Plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+
+        <!-- Checkstyle Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.0</version>
+
+            <configuration>
+                <configLocation>config/checkstyle/checkstyle.xml</configLocation>
+                <suppressionsLocation>config/checkstyle/.checkstyle-suppressions.xml</suppressionsLocation>
+                <consoleOutput>true</consoleOutput>
+                <failOnViolation>true</failOnViolation>
+            </configuration>
+
+        </plugin>
+
+        <!-- PMD Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.21.0</version>
+        </plugin>
+
+     </plugins>
+    </build>
