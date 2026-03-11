@@ -15,8 +15,16 @@ jobs:
            with:
              distribution: 'temurin'
              java-version: '21'
+
          - name: SonarQube Scan
-           uses: SonarSource/sonarqube-scan-action@v2
-           with:
-             projectKey: 'springboot-app'
-             projectName: 'springboot-app'
+           run: |
+            docker run --rm \
+            --platform linux/arm64 \
+            -v "${{ github.workspace }}:/usr/src" \
+            -w /usr/src \
+            sonarsource/sonar-scanner-cli:10.0 \
+            -Dsonar.projectKey=springboot-app \
+            -Dsonar.projectName=springboot-app \
+            -Dsonar.sources=src \
+            -Dsonar.host.url=http://localhost:9000 \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
