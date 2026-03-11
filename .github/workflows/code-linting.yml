@@ -17,6 +17,11 @@ jobs:
               with:
                 distribution: 'temurin'
                 java-version: '21'
+            - name: Install Maven
+              run: |
+                sudo apt update
+                sudo apt install -y maven
+                mvn -v
 
             - name: Run Checkstyle
               run: mvn checkstyle:check
