@@ -24,9 +24,7 @@ jobs:
                 mvn -v
 
             - name: Run Checkstyle
-              run: mvn checkstyle:check \
-                    -Dcheckstyle.config.location=config/checkstyle/checkstyle.xml \
-                    -Dcheckstyle.suppressions.location=config/checkstyle/.checkstyle-suppressions.xml
+              run: mvn checkstyle:check -Dcheckstyle.config.location=config/checkstyle/checkstyle.xml -Dcheckstyle.suppressions.location=config/checkstyle/.checkstyle-suppressions.xml
               
             - name: Run PMD
               run: mvn pmd:check
