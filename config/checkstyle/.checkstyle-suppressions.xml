@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE suppressions PUBLIC
-    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
-    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+ "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+ "https://checkstyle.org/dtds/suppressions_1_2.dtd">
 
 <suppressions>
-    <!-- Ignore all test code -->
-    <suppress files="src/test/.*" />
 
-    <!-- Ignore specific files -->
-    <suppress files="src/main/java/com/example/bankapp/controller/BankController.java" />
+  <!-- Ignore Javadoc rules globally -->
+  <suppress checks="JavadocType"/>
+  <suppress checks="JavadocMethod"/>
+  <suppress checks="JavadocVariable"/>
 
-    <!-- Ignore Javadoc checks globally for simplicity -->
-    <suppress checks="JavadocType, JavadocMethod, JavadocVariable" />
+  <!-- Ignore test directory -->
+  <suppress files="src/test/.*"/>
+
 </suppressions>

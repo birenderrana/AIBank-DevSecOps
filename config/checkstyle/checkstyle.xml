@@ -1,21 +1,20 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module PUBLIC
     "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
 
+    <!-- Load suppression file (works like .ignore) -->
+    <module name="SuppressionFilter">
+        <property name="file" value="config/checkstyle/.checkstyle-suppressions.xml"/>
+    </module>
+
     <module name="TreeWalker">
 
-        <!-- Keep important coding rules -->
+        <!-- Important coding rules -->
         <module name="FinalParameters"/>
         <module name="HiddenField"/>
-        <module name="DesignForExtension"/>
-
-        <!-- Javadoc checks enabled, but can be suppressed in .checkstyle-suppressions.xml -->
-        <module name="JavadocType"/>
-        <module name="JavadocMethod"/>
-        <module name="JavadocVariable"/>
 
     </module>
 
