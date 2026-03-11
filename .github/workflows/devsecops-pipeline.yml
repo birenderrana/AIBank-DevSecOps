@@ -27,7 +27,7 @@ jobs:
 
   docker_compose_build:
     needs: docker_lint
-    uses: ./.github/workflows/docker-compose-build.yml
+    uses: ./.github/workflows/docker-build.yml
 
   trivy_scan:
     needs: docker_compose_build
@@ -35,4 +35,4 @@ jobs:
 
   deploy_local:
     needs: trivy_scan
-    uses: ./.github/workflows/deploy-local.yml
+    uses: ./.github/workflows/deploy-to-server.yml
