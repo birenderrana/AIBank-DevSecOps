@@ -7,7 +7,7 @@ on:
 
 jobs:
     code-linting:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: validate
               uses: actions/checkout@v3
