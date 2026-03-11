@@ -7,7 +7,7 @@
 
     <!-- Load suppression file (works like .ignore) -->
     <module name="SuppressionFilter">
-     <property name="file" value="${org.checkstyle.maven.suppressions.file}"/>
+      <property name="file" value="config/checkstyle/.checkstyle-suppressions.xml"/>
     </module>
 
     <module name="TreeWalker">

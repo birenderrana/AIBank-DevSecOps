@@ -96,7 +96,6 @@
             <version>3.3.0</version>
 
             <configuration>
-			    <propertyExpansion>basedir=${project.basedir}</propertyExpansion>
                 <configLocation>config/checkstyle/checkstyle.xml</configLocation>
                 <suppressionsLocation>config/checkstyle/.checkstyle-suppressions.xml</suppressionsLocation>
                 <consoleOutput>true</consoleOutput>
