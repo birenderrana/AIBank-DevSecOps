@@ -5,12 +5,10 @@
 
 <suppressions>
 
-  <!-- Ignore Javadoc rules globally -->
   <suppress checks="JavadocType"/>
   <suppress checks="JavadocMethod"/>
   <suppress checks="JavadocVariable"/>
 
-  <!-- Ignore test directory -->
-  <suppress files="src/test/.*"/>
+  <suppress checks=".*" files="src/test/.*"/>
 
 </suppressions>
