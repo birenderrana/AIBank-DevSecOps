@@ -1,26 +1,20 @@
 #Scan backend + frontend + configs for security vulnerabilities.Will use Sonaqube(SAST)
-
-name: Code Scan
+name: SAST - Semgrep
 
 on:
-    workflow_call:
+  workflow_call:
 
 jobs:
-    code-scan:
-        runs-on: ubuntu-latest
-        steps:
-         - uses: actions/checkout@v4
-           with:
-            fetch-depth: 0
+  sast-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-         - name: Set up Java
-           uses: actions/setup-java@v3
-           with:
-             distribution: 'temurin'
-             java-version: '21'
-
-         - name: SonarQube Scan
-           env:
-             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-           run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=birenderrana_ai-bank-devsecops
-            
+      - name: Run Semgrep SAST Scan
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: >-
+            p/java
+            p/owasp-top-ten
+            p/secrets
