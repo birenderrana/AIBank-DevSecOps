@@ -1,6 +1,6 @@
 #It will give info about code style, best practices, and potential errors
 
-name: Code liniting. 
+name: Code liniting
 
 on:
     workflow_call:
