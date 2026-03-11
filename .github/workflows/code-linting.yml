@@ -22,10 +22,8 @@ jobs:
                 sudo apt update
                 sudo apt install -y maven
                 mvn -v
-
             - name: Run Checkstyle
-              run: mvn checkstyle:check 
-              
+              run: mvn clean checkstyle:check
             - name: Run PMD
               run: mvn pmd:check
 
