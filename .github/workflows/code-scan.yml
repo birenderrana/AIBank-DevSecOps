@@ -17,7 +17,8 @@ jobs:
              java-version: '21'
 
          - name: SonarQube Scan
-           run: docker run --rm --platform linux/amd64 \
+           run: |
+                docker run --rm --platform linux/amd64 \
                 -v "${GITHUB_WORKSPACE}:/usr/src" \
                 -w /usr/src \
                 sonarsource/sonar-scanner-cli:10.0 \
