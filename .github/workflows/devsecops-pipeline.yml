@@ -1,0 +1,38 @@
+name: Full CI/CD Pipeline
+
+on:
+  push:
+    branches: [ docker ]
+  
+
+jobs:
+  secrets_scan:
+    uses: ./.github/workflows/secrets-scan.yml
+
+  lint_code:
+    needs: secrets_scan
+    uses: ./.github/workflows/code-linting.yml
+
+  sast_scan:
+    needs: lint_code
+    uses: ./.github/workflows/code-scan.yml
+
+  dependency_scan:
+    needs: sast_scan
+    uses: ./.github/workflows/dependency-scan.yml
+
+  docker_lint:
+    needs: dependency_scan
+    uses: ./.github/workflows/docker-lint.yml
+
+  docker_compose_build:
+    needs: docker_lint
+    uses: ./.github/workflows/docker-compose-build.yml
+
+  trivy_scan:
+    needs: docker_compose_build
+    uses: ./.github/workflows/trivy-scan.yml
+
+  deploy_local:
+    needs: trivy_scan
+    uses: ./.github/workflows/deploy-local.yml

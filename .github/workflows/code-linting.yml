@@ -1,0 +1,26 @@
+#It will give info about code style, best practices, and potential errors
+
+name: Code liniting. 
+
+on:
+    workflow_call:
+
+jobs:
+    code-linting:
+        runs-on: self-hosted
+        steps:
+            - name: validate
+              uses: actions/checkout@v3
+
+            - name: Set up Java
+              uses: actions/setup-java@v3
+              with:
+                distribution: 'temurin'
+                java-version: '21'
+
+            - name: Run Checkstyle
+              run: mvn checkstyle:check
+              
+            - name: Run PMD
+              run: mvn pmd:check
+
